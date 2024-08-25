@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<style>
+     .main {
+          display: flex;
+          gap: 15vw;
+          height: 10vw;
+          width: 100%;
+          /* background-color: red; */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+     }
+     .main h1{
+          font-size: 1.2vw;
+     }
+     .main a{
+          text-decoration: none;
+          font-size: .1vw;
+          color: black;
+     }
+</style>
+
+<body>
+     <div id="main">
+          <div class="main">
+               <h1>
+                    <%= founduser.username %>
+               </h1>
+               <a href="/task">
+                    <h1>Task</h1>
+               </a>
+               <a href="/viwe">
+                    <h1>View</h1>
+               </a>
+               <a href="/logout"><h1>Logout</h1></a>
+          </div>
+     </div>
+</body>
+
+</html>

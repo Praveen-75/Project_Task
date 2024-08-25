@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+
+     <h1>Edit Task</h1>
+
+     <form action="/task/<%= Task.id %>/update" method="POST">
+          <div>
+               <label for="title">Title:</label>
+               <input type="text" id="title" name="title" value="<%= Task.title %>" required>
+          </div>
+          <div>
+               <label for="description">Description:</label>
+               <textarea id="description" name="description"><%= Task.description %></textarea>
+          </div>
+          <div>
+               <label for="status">Status:</label>
+               <select id="status" name="status">
+                    <option value="Todo" <%=Task.status==='Todo' ? 'selected' : '' %>>Todo</option>
+                    <option value="In Progress" <%=Task.status==='In Progress' ? 'selected' : '' %>>In Progress
+                    </option>
+                    <option value="Done" <%=Task.status==='Done' ? 'selected' : '' %>>Done</option>
+               </select>
+          </div>
+          <div>
+               <label for="priority">Priority:</label>
+               <select id="priority" name="priority">
+                    <option value="Low" <%=Task.priority==='Low' ? 'selected' : '' %>>Low</option>
+                    <option value="Medium" <%=Task.priority==='Medium' ? 'selected' : '' %>>Medium</option>
+                    <option value="High" <%=Task.priority==='High' ? 'selected' : '' %>>High</option>
+               </select>
+          </div>
+          <div>
+               <label for="dueDate">Due Date:</label>
+               <input type="date" id="dueDate" name="dueDate"
+                    value="<%= Task.dueDate ? Task.dueDate.toISOString().split('T')[0] : '' %>">
+          </div>
+          <button type="submit">Update Task</button>
+     </form>
+
+</body>
+
+</html>

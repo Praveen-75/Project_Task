@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<style>
+     #main {
+          flex-direction: column;
+     }
+
+     .main {
+          height: 10vw;
+          display: flex;
+          flex-direction: column;
+          gap: 2vw;
+     }
+
+     .btn {
+          font-size: 2vw;
+          color: blue;
+     }
+
+     h2 {
+          font-size: 2.5vw;
+     }
+
+     p {
+          font-size: 1.9vw;
+     }
+     .id{
+          height: 3vw;
+          font-size: 1.2vw;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+     }
+</style>
+
+<body>
+
+     <div id="main">
+          <h1>My Tasks</h1>
+
+          <a href="/task/" class="btn btn-primary">Create New Task</a>
+
+          <ul>
+               <% Task.forEach(task=> { %>
+                    <div class="main">
+                         <li>
+                              <h2>
+                                   <%= task.title %>
+                              </h2>
+                              <p>Status: <%= task.status %>
+                              </p>
+                              <p>Priority: <%= task.priority %>
+                              </p>
+                              <p>Due Date: <%= task.dueDate ? task.dueDate.toLocaleDateString() : 'N/A' %>
+                              </p>
+                              <div class="id">
+                                   <a href="/task/<%= task.id %>/update">Edit</a>
+                                   <a href="/task/<%= task.id %>">Delete</a>
+                              </div>
+                         </li>
+                    </div>
+                    <% }) %>
+          </ul>
+
+     </div>
+
+
+</body>
+
+</html>
